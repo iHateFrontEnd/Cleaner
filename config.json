@@ -1,0 +1,23 @@
+{
+    "firstTimeRun": false,
+    "fileExtensionNames": [
+        "jpg",
+        "png",
+        "doc",
+        "pdf",
+        "docx",
+        "ppt",
+        "pptx",
+        "odt",
+        "xls",
+        "xlsx",
+        "mov",
+        "mp4",
+        "mp3",
+        "exe",
+        "iso",
+        "ini",
+        "msi",
+        "jpeg"
+    ]
+}
