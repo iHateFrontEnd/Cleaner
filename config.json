@@ -1,5 +1,5 @@
 {
-    "firstTimeRun": false,
+    "firstTimeRun": true,
     "fileExtensionNames": [
         "jpg",
         "png",
@@ -19,5 +19,7 @@
         "ini",
         "msi",
         "jpeg"
-    ]
+    ],
+    "os": "",
+    "downloadsPath": ""
 }

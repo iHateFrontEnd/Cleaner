@@ -6,16 +6,10 @@ def main():
     config_file = json.load(open('config.json'))
 
     if config_file['firstTimeRun'] == True:
-        with open('config.json', 'w') as f:
-            config_file['firstTimeRun'] = False
-            json_obj = json.dumps(config_file)
-
-            f.write(json_obj)
-            print('Done')
-
-        setup(config_file['fileExtensionNames'])
+        setup()
     else:
-        clean_up(config_file['fileExtensionNames'])
+        print(config_file)
+        clean_up(config_file['fileExtensionNames'], config_file['downloadsPath'])
 
 
 if __name__ == '__main__':

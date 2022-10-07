@@ -1,10 +1,8 @@
 import os
 from time import *
 
-def clean_up(file_extensions):
+def clean_up(file_extensions, path):
     while True:
-        path = r"C:\Users\Rushabh\Downloads"
-
         files = os.listdir(path)
 
         for i in file_extensions:
