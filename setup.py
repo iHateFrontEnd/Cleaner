@@ -8,6 +8,7 @@ def setup(config_file):
         path = os.path.join(r'C:\Users\Rushabh\Downloads',  dir_name)
 
         os.makedirs(path)
-            
-    clean_up(config_file['fileExtensionNames'])
+
+    while True:         
+        clean_up(config_file['fileExtensionNames'])
     

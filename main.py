@@ -1,4 +1,3 @@
-from distutils.command.config import config
 from clean_up import clean_up
 from setup import setup
 import json
