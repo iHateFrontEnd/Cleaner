@@ -5,9 +5,11 @@ def setup(config_file):
     for i in range(14):
         dir_name = config_file['fileExtensionNames'][i] 
 
-        path = os.path.join(r'C:\Users\Rushabh\Downloads',  dir_name)
+        path = r'C:\Users\Rushabh\Downloads' 
 
-        os.makedirs(path)
+        folder_names = os.path.join(path,  dir_name)
+
+        os.makedirs(folder_names)
 
     while True:         
         clean_up(config_file['fileExtensionNames'])
