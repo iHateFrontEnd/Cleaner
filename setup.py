@@ -3,47 +3,48 @@ import json
 from clean_up import clean_up
 
 config_file = json.load(open('config.json'))
-#creating folders inside the downloads folder
-def create_dirs(config_file):
-    for i in range(14):
-        dir_name = config_file['fileExtensionNames'][i] 
 
-        path = r'C:\Users\Rushabh\Downloads' 
-
-        folder_names = os.path.join(path,  dir_name)
-
-        os.makedirs(folder_names)
-
-    while True:         
-        clean_up(config_file['fileExtensionNames'])
-
-#writes the windows config.json
-def windows_setup():
+def create_config(operating_system):
     home_dir = os.path.expanduser('~')
     downloads_path = os.path.join(home_dir, 'Downloads')
 
     with open('config.json', 'w') as f:
         config_file['firstTimeRun'] = False
-        config_file['os'] = 'windows'
+
+        if operating_system == 'windows':
+            config_file['os'] = 'windows'
+        elif operating_system == 'linux':
+            config_file['os'] = 'linux'
+        
         config_file['downloadsPath'] = downloads_path
 
         json_obj = json.dumps(config_file)
 
         f.write(json_obj)
 
-    clean_up(config_file['fileExtensionNames'], config_file['downloadsPath'])
+    create_dirs()
 
-def linux_setup():
-    pass
+#creating folders inside the downloads folder
+def create_dirs():
+    for i in range(14):
+        dir_name = config_file['fileExtensionNames'][i] 
+
+        path = config_file['downloadsPath']
+
+        folder_names = os.path.join(path,  dir_name)
+
+        os.makedirs(folder_names)
+
+        clean_up(config_file['fileExtensionNames'], path)
 
 def setup():
     os_inp = input('If you use window please type: 1, if you use Linux please type: 2: ')
 
     if os_inp.isnumeric():
         if os_inp == '1':
-            windows_setup()
+            create_config('windows')
         elif os_inp == '2':
-            linux_setup()
+            create_config('linux')
         else:
             setup()
     else:
